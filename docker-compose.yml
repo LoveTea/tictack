@@ -1,0 +1,38 @@
+services:
+  api:
+    container_name: tictac-api
+    build:
+      context: ./tictac
+      dockerfile: Dockerfile
+    ports:
+      - "5039:8080"
+    depends_on:
+      - postgres
+    environment:
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=tictac;Username=postgres;Password=postgres
+
+  postgres:
+    container_name: tictac-postgres
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tictac
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  frontend:
+    container_name: tictac-frontend
+    build:
+      context: ./my-vue-app
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

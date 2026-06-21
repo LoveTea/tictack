@@ -1,0 +1,6 @@
+@tictac_HostAddress = http://localhost:5039
+
+GET {{tictac_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

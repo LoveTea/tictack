@@ -1,0 +1,85 @@
+body {
+  font-family: sans-serif;
+  background-color: #20232a;
+  color: white;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Лобби */
+.lobby-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.lobby-container input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.lobby-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Игровой экран */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.player-panel {
+  border: 2px solid #61dafb;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 120px;
+}
+.player-panel.active {
+  background-color: #3b404d;
+  box-shadow: 0 0 10px #61dafb;
+}
+
+/* Доска 3х3 */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+
+.cell {
+  background-color: #282c34;
+  border: 1px solid #444;
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.cell:disabled {
+  cursor: default;
+}
+
+.error-toast {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
